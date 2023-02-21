@@ -1,3 +1,8 @@
 {
-	"liveServer.settings.port": 5501
+	"liveServer.settings.port": 5501,
+	"peacock.affectDebuggingStatusBar": true,
+	"peacock.surpriseMeFromFavoritesOnly": true,
+	"peacock.affectSashHover": false,
+	"peacock.affectPanelBorder": false,
+	"peacock.affectActivityBar": false
 }

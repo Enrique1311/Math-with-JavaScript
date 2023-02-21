@@ -46,7 +46,6 @@ console.log({
 	alturaTriangulo,
 	perimetroTriangulo,
 	areaTriangulo,
-	altura,
 });
 
 console.groupEnd('Triangulo');
