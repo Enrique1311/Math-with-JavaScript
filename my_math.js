@@ -1,5 +1,7 @@
+const MyMath = {};
+
 // Promedio con ciclo "for"
-function calcularPromedioFor(array) {
+MyMath.calcularPromedioFor = function calcularPromedioFor(array) {
 	let suma = 0;
 
 	for (i = 0; i < array.length; i++) {
@@ -8,11 +10,11 @@ function calcularPromedioFor(array) {
 	const promedio = suma / array.length;
 	console.log('Promedio con ciclo for: ' + promedio);
 	return promedio;
-}
-calcularPromedioFor([1, 2, 3, 4, 50]);
+};
+//MyMath.calcularPromedioFor([1, 2, 3, 4, 50]);
 
 // Promedio con método "reduce()"
-function calcularPromedioReduce(array2) {
+MyMath.calcularPromedioReduce = function calcularPromedioReduce(array2) {
 	const sumaArray2 = array2.reduce(
 		// El reduce recibe una función que suma todos los elementos del array
 		(sumaDeValores, valorRecorrido) => (sumaDeValores += valorRecorrido)
@@ -20,22 +22,22 @@ function calcularPromedioReduce(array2) {
 	const prom = sumaArray2 / array2.length;
 	console.log('Promedio con reduce: ' + prom);
 	return prom;
-}
-calcularPromedioReduce([10, 15, 25, 30]);
+};
+//MyMath.calcularPromedioReduce([10, 15, 25, 30]);
 
 // calcular mediana de un array
-function esPar(array3) {
+MyMath.esPar = function esPar(array3) {
 	if (array3.length % 2 === 0) {
 		return true;
 	} else {
 		return false;
 	}
 	//return !(array3.length % 2); // devuelve lo mismo que el condicional
-}
+};
 
-function calcularMediana(listaDesordenada) {
-	const array3 = ordenarArray(listaDesordenada);
-	const arrayEsPar = esPar(array3);
+MyMath.calcularMediana = function calcularMediana(listaDesordenada) {
+	const array3 = MyMath.ordenarArray(listaDesordenada);
+	const arrayEsPar = MyMath.esPar(array3);
 
 	if (arrayEsPar) {
 		const indexSegundaMitad = array3.length / 2;
@@ -45,7 +47,7 @@ function calcularMediana(listaDesordenada) {
 
 		const arrayMitades = [primeraMitad, segundaMitad];
 
-		const medianaListaPar = calcularPromedioReduce(arrayMitades);
+		const medianaListaPar = MyMath.calcularPromedioReduce(arrayMitades);
 
 		console.log(indexPrimeraMitad);
 		console.log(indexSegundaMitad);
@@ -57,11 +59,11 @@ function calcularMediana(listaDesordenada) {
 		console.log('La lista es impar y su mediana es: ' + medianaListaImpar);
 		return medianaListaImpar;
 	}
-}
-calcularMediana([40, 55, 10, 20, 30, 70, 80]);
+};
+//MyMath.calcularMediana([40, 55, 10, 20, 30, 70, 80]);
 
 // Ordenar un array
-function ordenarArray(listaDesordenada) {
+MyMath.ordenarArray = function ordenarArray(listaDesordenada) {
 	function ordenarListaConSort(primerValor, siguienteValor) {
 		if (primerValor > siguienteValor) {
 			return 1;
@@ -84,11 +86,11 @@ function ordenarArray(listaDesordenada) {
 
 	console.log('Lista ordenada: ', listaOrdenada);
 	return listaOrdenada;
-}
+};
 
-ordenarArray([8, 5, 9, 2, 1, 6]);
+//MyMath.ordenarArray([8, 5, 9, 2, 1, 6]);
 
-function calcularModa(lista) {
+MyMath.calcularModa = function calcularModa(lista) {
 	const listCount = {};
 
 	for (let i = 0; i < lista.length; i++) {
@@ -107,35 +109,38 @@ function calcularModa(lista) {
 	console.log({ listCount, listaArray, listaOrdenada, listaOrdenadaMaxNum });
 	console.log('La moda es: ' + listaOrdenadaMaxNum[0]);
 	return moda;
-}
-calcularModa([1, 1, 1, 2, 3, 4, 4, 4, 4, 5, 5, 6, 7, 8]);
+};
+//MyMath.calcularModa([1, 1, 1, 2, 3, 4, 4, 4, 4, 5, 5, 6, 7, 8]);
 
 // Ordenar un array
-function ordenarArray(listaDesordenada) {
+MyMath.ordenarArray = function ordenarArray(listaDesordenada) {
 	function ordenarListaConSort(primerValor, siguienteValor) {
 		return primerValor - siguienteValor; // de menor a mayor
 	}
 	const lista = listaDesordenada.sort(ordenarListaConSort);
 	return lista;
-}
+};
 
-ordenarArray([8, 5, 9, 2, 1, 6]);
+//MyMath.ordenarArray([8, 5, 9, 2, 1, 6]);
 
 // Ordenar lista bidimensional
-function ordenarListaBidimensional(listaDesordenada, i) {
+MyMath.ordenarListaBidimensional = function ordenarListaBidimensional(
+	listaDesordenada,
+	i
+) {
 	function ordenarListaConSort(primerValor, siguienteValor) {
 		return primerValor[i] - siguienteValor[i];
 	}
 	const lista = listaDesordenada.sort(ordenarListaConSort);
 	console.log(lista);
 	return lista;
-}
-ordenarListaBidimensional(
-	[
-		['a', 2],
-		['b', 3],
-		['c', 4],
-		['d', 1],
-	],
-	1
-);
+};
+//MyMath.ordenarListaBidimensional(
+// 	[
+// 		['a', 2],
+// 		['b', 3],
+// 		['c', 4],
+// 		['d', 1],
+// 	],
+// 	1
+// );
